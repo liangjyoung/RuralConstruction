@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="invgat" namespace="/" extends="struts-default,json-default">
+	
+        <action name="Invgat_*" class="InvgatAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	<package name="Selinvgat" namespace="/" extends="struts-default">
+		<action name="selinv_*" class="SelinvgatAction" method="{1}" ></action>
+	</package>
+</struts>    

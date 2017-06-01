@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<!-- Service -->
+	
+	<bean id="IVillageCompartmentService" class="com.rural.villagecompartment.service.VillageCompartmentService" scope="prototype">
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+		<property name="vilfilDAO" ref="VilFilDAO"></property>
+		<property name="invgatDworkDAO" ref="InvgatDworkDAO"></property>
+		<property name="vilDataCollRecDAO" ref="VilDataCollRecDAO"></property>
+		<property name="vilContDAO" ref="VilContDAO"></property>
+		
+		
+	</bean>
+	<bean id="SelvilService" class="com.rural.villagecompartment.service.SelvilService" scope="prototype">
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+	</bean>
+	
+	
+	<!-- Action -->
+	<bean id="VillageCompartmentAction" class="com.rural.villagecompartment.action.VillageCompartmentAction" scope="prototype">
+		<property name="iVillageCompartmentService" ref="IVillageCompartmentService"/>
+	</bean>	
+	<bean id="SelvilAction" class="com.rural.villagecompartment.action.SelvilAction" scope="prototype">
+		<property name="selvilService" ref="SelvilService"/>
+	</bean>	
+
+</beans>

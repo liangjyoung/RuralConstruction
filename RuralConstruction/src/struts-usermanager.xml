@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+ 
+	<package name="sysfunc" namespace="/" extends="struts-default,json-default">
+		<action name="sysfunc_*" class="SysFuncAction" method="{1}" >
+			<result type="json">
+                <param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="sysrole" namespace="/" extends="struts-default,json-default">
+		<action name="sysrole_*" class="SysRoleAction" method="{1}" >
+			<result type="json">
+                <param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="sysuser" namespace="/" extends="struts-default,json-default">
+		<action name="sysuser_*" class="SysUserAction" method="{1}" >
+			<result type="json">
+                <param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+</struts>    

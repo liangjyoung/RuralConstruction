@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+		<meta charset="utf-8" />
+		<title>美丽乡村建设标准化建设管理与评价系统</title>
+		<link rel="shortcut icon" href="login/favicon.ico">	
+		<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="../base/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../base/assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="../base/assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../base/assets/css/jquery-ui-1.10.3.full.min.css" />
+		<link rel="stylesheet" href="../base/assets/css/datepicker.css" />
+		<link rel="stylesheet" href="../base/assets/css/ui.jqgrid.css" />
+
+		<!-- fonts -->
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+		<link rel="stylesheet" href="../base/assets/css/test.css" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="../base/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="../base/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="../base/assets/css/ace-skins.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="../base/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+
+		<script src="../base/assets/js/ace-extra.min.js"></script>
+		<script src="../base/assets/js/jquery-1.9.1.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="../base/assets/js/html5shiv.js"></script>
+		<script src="../base/assets/js/respond.min.js"></script>
+		<![endif]-->
+		<%
+		 HttpSession sessions=request.getSession(); 
+		 Object username=sessions.getAttribute("username");
+		 Object sysUserBeloDiviCode=sessions.getAttribute("sysUserBeloDiviCode");
+		 Object changeroleid=sessions.getAttribute("changeroleid");
+		  if(username==null){
+		 	response.sendRedirect("../../login.jsp");
+		      return;  
+		 }
+		%>
+		<script>
+			var diviname="";
+			var currentrole="";
+			var str="";
+			var currentfunc=new Array();
+			var otherrolelist=new Array();
+			var otherroleidlist=new Array();
+			//var a='<%=username%>';
+			//alert(a);
+				
+			configUrl="../../login_refreshweb.action";
+			$.ajax({
+			url:configUrl,
+			type:'get',
+			dataType:'json', 
+			async:false,
+			success:function(data){
+			 diviname=data.diviname
+			 currentrole=data.currentrole
+			 //alter(data.currentfunc)
+			 //alter(data.otherrolelist)
+			 //角色切换的标签
+			 otherrolelist=data.otherrolelist;
+			 // $.each(data.otherrolelist,function(n,value){
+			 //		var str1="";
+			 //		str1+="<li><a id=\"a\" href=\"#\">"+value+"</a></li>";
+			 //		str+=str1;
+ 			 // });
+ 			  currentfunc=data.currentfunc;
+ 			  otherroleidlist=data.otherroleidlist;
+			 // $.each(data.otherroleidlist,function(n,value){
+			// 	alert(n + '    ' + value)
+			// 	currentfunc[n]=value;
+ 			//  });
+			},
+			error:function(e){   //失败后回调
+					//console.log("syswebConfig_findinfo.action不对");
+				}, 
+		    });
+			 
+			 $(function(){ 
+			 $.each(otherrolelist,function(n,value){
+			 		$("#role"+n). attr("style","display:block");
+			 		$("#role"+n). attr("name",otherroleidlist[n]);
+			 		$("#role"+n).append(value);
+ 			  });
+			  if(diviname==null){
+			 	 $("#userdivi").attr("style","display:none");;	
+			  }else{
+				$("#userdivi").html("所属区划："+diviname);	
+			  }
+				$("#currentrole").html(currentrole);
+				$("#rolelist").append(str);
+					//alter(i);
+				//}
+				 $.each(currentfunc,function(n,value){
+				 	//alert(n + '    ' + value)
+				
+					
+				 	$("#"+value). attr("style","display:block");
+	 			  });	
+　          　}); 
+		</script>
+	

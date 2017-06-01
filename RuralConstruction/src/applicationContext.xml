@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+						http://www.springframework.org/schema/tx
+    			    	http://www.springframework.org/schema/tx/spring-tx.xsd
+     			    	http://www.springframework.org/schema/aop
+    			    	http://www.springframework.org/schema/aop/spring-aop.xsd ">
+
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation" value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- 事务通知 -->
+ 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	 		<!-- 事务语义 -->
+  		<tx:attributes>
+   			<tx:method name="get*" read-only="true"/>
+   			<tx:method name="find*" propagation="REQUIRED"/>
+   			<tx:method name="*" propagation="REQUIRED" />
+   			<tx:method name="delete*" propagation="REQUIRED" />
+   			<tx:method name="input*" propagation="REQUIRED" />
+  		</tx:attributes>
+ 	</tx:advice>
+ 
+ 		<!-- 添加事务 -->
+ 	<aop:config>
+		<aop:pointcut id="allMethods" expression="execution(* com.*.service.*.*.*(..)) "/>
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="allMethods"/>		
+	</aop:config>
+	<import resource="applicationContext-usermanager.xml"/>
+	<import resource="applicationContext-govfile.xml"/>
+	<import resource="applicationContext-dataCollDataDic.xml"/>
+	<import resource="applicationContext-evalsystem.xml"/>
+	<import resource="applicationContext-villCompart.xml"/>
+	<import resource="applicationContext-collDataTemplet.xml"/>
+	<import resource="applicationContext-basicdata.xml"/>
+	<import resource="applicationContext-invgat.xml"/>
+	<import resource="applicationContext-admidivision.xml"/>
+	<import resource="applicationContext-budgetpro.xml"/>
+	<import resource="applicationContext-login.xml"/>
+	<import resource="applicationContext-towncont.xml"/>
+	<import resource="applicationContext-invgatDwork.xml"/>
+	<import resource="applicationContext-contact.xml"/>
+	<import resource="applicationContext-district.xml"/>
+	<import resource="applicationContext-expert.xml"/>
+	<import resource="applicationContext-experteval.xml"/>	
+	<import resource="applicationContext-common.xml"/>
+	<import resource="applicationContext-expertOLGra.xml"/>	
+	<import resource="applicationContext-villageColldDUIXIANG.xml"/>	
+	<import resource="applicationContext-villageColldJILU.xml"/>	
+
+	<import resource="applicationContext-prmtMeas.xml"/>	
+
+	<import resource="applicationContext-expertGraMgmt.xml"/>
+
+	<import resource="application-evalcontsee.xml"/>
+	<import resource="applicationContext-downfile.xml"/>
+	<import resource="application-scolev.xml"/>
+
+
+	<import resource="applicationContext-expertselect.xml"/>
+	<import resource="applicationContext-appdown.xml"/>
+	
+	<import resource="applicationContext-townscoreorder.xml"/>
+	<import resource="applicationContext-ctvrank.xml"/>
+	<import resource="applicationContext-townAverage.xml"/>
+	<import resource="applicationContext-averanalysis.xml"/>
+
+ 	<bean id="InvesObjAttriDAO"
+ 		class="com.rural.dao.InvesObjAttriDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ExpertGraDAO" class="com.rural.dao.ExpertGraDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EduDAO" class="com.rural.dao.EduDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EvalSystIndDAO" class="com.rural.dao.EvalSystIndDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="CityBasicInfoDAO"
+ 		class="com.rural.dao.CityBasicInfoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="VilEvalScoDAO" class="com.rural.dao.VilEvalScoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EvalContDAO" class="com.rural.dao.EvalContDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="InvgatDworkDAO" class="com.rural.dao.InvgatDworkDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="NationDAO" class="com.rural.dao.NationDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EvalExpertDistDAO"
+ 		class="com.rural.dao.EvalExpertDistDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ProFilDAO" class="com.rural.dao.ProFilDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ProContDAO" class="com.rural.dao.ProContDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="CountryContDAO" class="com.rural.dao.CountryContDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="VilFilDAO" class="com.rural.dao.VilFilDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ExamMethDAO" class="com.rural.dao.ExamMethDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ExpertMajorCatgDAO"
+ 		class="com.rural.dao.ExpertMajorCatgDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="CountryBasicInfoDAO"
+ 		class="com.rural.dao.CountryBasicInfoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ProBasicInfoDAO"
+ 		class="com.rural.dao.ProBasicInfoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="VilContDAO" class="com.rural.dao.VilContDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="GoveFilClfyDAO" class="com.rural.dao.GoveFilClfyDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="CitysFilDAO" class="com.rural.dao.CitysFilDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EvalSystStateDAO"
+ 		class="com.rural.dao.EvalSystStateDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="VilBasicInfoDAO"
+ 		class="com.rural.dao.VilBasicInfoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="InvgatDAO" class="com.rural.dao.InvgatDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="VilDataCollRecDAO"
+ 		class="com.rural.dao.VilDataCollRecDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ExpertDAO" class="com.rural.dao.ExpertDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="SysUserDAO" class="com.rural.dao.SysUserDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="SysFuncDAO" class="com.rural.dao.SysFuncDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="TownFilDAO" class="com.rural.dao.TownFilDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="InvesProDAO" class="com.rural.dao.InvesProDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="TownContDAO" class="com.rural.dao.TownContDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="PolDAO" class="com.rural.dao.PolDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="DataCollDicEntryDAO"
+ 		class="com.rural.dao.DataCollDicEntryDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="VilFilDataDAO" class="com.rural.dao.VilFilDataDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="SysRoleUserDAO" class="com.rural.dao.SysRoleUserDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EvalSystDAO" class="com.rural.dao.EvalSystDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="SysRoleDAO" class="com.rural.dao.SysRoleDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="DataCollDataDicDAO"
+ 		class="com.rural.dao.DataCollDataDicDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="RoleFuncPermDAO"
+ 		class="com.rural.dao.RoleFuncPermDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EvalContInvesObjDAO"
+ 		class="com.rural.dao.EvalContInvesObjDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="InvesObjDataDAO"
+ 		class="com.rural.dao.InvesObjDataDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="CountryFilDAO" class="com.rural.dao.CountryFilDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="EvalContSubScoDAO"
+ 		class="com.rural.dao.EvalContSubScoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="InvesObjDAO" class="com.rural.dao.InvesObjDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="BudgProCatgDAO" class="com.rural.dao.BudgProCatgDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="CitysContDAO" class="com.rural.dao.CitysContDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="BudgProUpriceDAO"
+ 		class="com.rural.dao.BudgProUpriceDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="SexDAO" class="com.rural.dao.SexDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="TownBasicInfoDAO"
+ 		class="com.rural.dao.TownBasicInfoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="PrmtMeasDAO" class="com.rural.dao.PrmtMeasDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="LevelsIndScoDAO" class="com.rural.dao.LevelsIndScoDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	<bean id="ScoLevDAO" class="com.rural.dao.ScoLevDAO">
+ 		<property name="sessionFactory">
+ 			<ref bean="sessionFactory" />
+ 		</property>
+ 	</bean>
+ 	</beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="evalcontsee" namespace="/" extends="struts-default,json-default">
+	
+        <action name="FullEvalcont_*" class="FullEvalContAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		<action name="ZeroEvalcont_*" class="ZeroEvalContAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		<action name="ImproveEvalcont_*" class="ImproveEvalContAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+</struts>    

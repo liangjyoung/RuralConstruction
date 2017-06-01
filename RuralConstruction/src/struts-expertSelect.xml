@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="exp_pro" namespace="/" extends="struts-default,json-default">
+	
+        <action name="expsel_*" class="ExpertSelectAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	
+	<package name="allexp" namespace="/" extends="struts-default,json-default">
+	
+        <action name="allexp_*" class="AllExpertAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+</struts>    

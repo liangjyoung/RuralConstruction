@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<include file="struts-evalsystem.xml"/>
+<include file="struts-dataCollDataDic.xml"/>
+<include file="struts-govfile.xml"/>
+<include file="struts-usermanager.xml"/>
+<include file="struts-collDataTemplet.xml"/>
+<include file="struts-villCompart.xml"/>
+<include file="struts-admidivision.xml"/>
+<include file="struts-basicdata.xml"/>
+<include file="struts-invgat.xml"/>
+<include file="struts-budgetpro.xml"/>
+<include file="struts-login.xml"/>
+<include file="struts-towncont.xml"/>
+<include file="struts-invgatDwork.xml"/>
+<include file="struts-contact.xml"/>
+<include file="struts-district.xml"/>
+<include file="struts-expert.xml"/>
+<include file="struts-experteval.xml"/>
+<include file="struts-common.xml"/>
+<include file="struts-expertOLGra.xml"/>
+<include file="struts-villageColldDUIXIANG.xml"/>
+<include file="struts-villageColldJILU.xml"/>
+
+<include file="struts-prmtMeas.xml"/>
+
+<include file="struts-expertGraMgmt.xml"/>
+
+<include file="struts-evalcontsee.xml"/>
+
+<include file="struts-downfile.xml"/>
+<include file="struts-expertSelect.xml"/>
+<include file="struts-appdown.xml"/>
+<include file="struts-townscoreorder.xml"/>
+<include file="struts-ctvrank.xml"/>
+
+<include file="struts-averanalysis.xml"/>
+<include file="struts-scolev.xml"/>
+<include file="struts-townAverage.xml"/>
+</struts>    

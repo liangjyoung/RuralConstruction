@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="iInvgatService" class="com.rural.invgat.service.InvgatService" scope="prototype">
+		<property name="edudao" ref="EduDAO"></property>
+		<property name="invgatdao" ref="InvgatDAO"></property>
+		
+		<property name="sexdao" ref="SexDAO"></property>
+		<property name="nationdao" ref="NationDAO"></property>
+		<property name="poldao" ref="PolDAO"></property>
+		<property name="invgatDworkdao" ref="InvgatDworkDAO"></property>
+		<property name="vilDataCollRecdao" ref="VilDataCollRecDAO"></property>
+		<property name="sysuserDao" ref="SysUserDAO"></property>
+	</bean>
+	<bean id="SelinvgatService" class="com.rural.invgat.service.SelinvgatService" scope="prototype">
+		<property name="invgatDAO" ref="InvgatDAO"></property>
+	</bean>
+	
+	<!-- Action -->
+	<bean id="InvgatAction" class="com.rural.invgat.action.InvgatAction" scope="prototype">
+		<property name="iInvgatService" ref="iInvgatService"/>
+	</bean>	
+	<bean id="SelinvgatAction" class="com.rural.invgat.action.SelinvgatAction" scope="prototype">
+		<property name="selinvgatService" ref="SelinvgatService"/>
+	</bean>	
+
+</beans>

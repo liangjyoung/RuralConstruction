@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="iCityBasicInfoService" class="com.rural.admiDivisions.service.CityBasicInfoService" scope="prototype">
+		<property name="cityBasicInfoDAO" ref="CityBasicInfoDAO"></property>
+		<property name="proBasicInfoDAO" ref="ProBasicInfoDAO"></property>
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		<property name="citysContDAO" ref="CitysContDAO"></property>
+		<property name="citysFilDAO" ref="CitysFilDAO"></property>
+		
+	
+		
+		
+	</bean>
+	
+	<bean id="iCountryBasicInfoService" class="com.rural.admiDivisions.service.CountryBasicInfoService" scope="prototype">
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		<property name="cityBasicInfoDAO" ref="CityBasicInfoDAO"></property>
+		<property name="townBasicInfoDAO"  ref="TownBasicInfoDAO"></property>
+		<property name="countryContDAO" ref="CountryContDAO"></property>
+		<property name="countryFilDAO" ref="CountryFilDAO"></property>
+	
+		
+	</bean>
+	
+	<bean id="iTownBasicInfoService" class="com.rural.admiDivisions.service.TownBasicInfoService" scope="prototype">
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+		<property name="townContDAO" ref="TownContDAO"></property>
+		<property name="townFilDAO" ref="TownFilDAO"></property>
+	
+		
+		
+	</bean>
+	<bean id="selTownBasicInfoService" class="com.rural.admiDivisions.service.SelTownBasicInfoService" scope="prototype">
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+	</bean>
+	
+	<bean id="TowntreeService" class="com.rural.admiDivisions.service.TowntreeService" scope="prototype">
+		
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		
+	
+		
+		
+	</bean>
+	<bean id="CountrytreeService" class="com.rural.admiDivisions.service.CountrytreeService" scope="prototype">
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		
+	
+		
+	</bean>
+	<bean id="ViltreeService" class="com.rural.admiDivisions.service.ViltreeService" scope="prototype">
+		
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+		
+	</bean>
+	
+	<!-- Action -->
+	<bean id="CityBasicInfoAction" class="com.rural.admiDivisions.action.CityBasicInfoAction" scope="prototype">
+		<property name="iCityBasicInfoService" ref="iCityBasicInfoService"/>
+	</bean>	
+	
+	<bean id="CountryBasicInfoAction" class="com.rural.admiDivisions.action.CountryBasicInfoAction" scope="prototype">
+		<property name="iCountryBasicInfoService" ref="iCountryBasicInfoService"/>
+	</bean>	
+	
+	<bean id="TownBasicInfoAction" class="com.rural.admiDivisions.action.TownBasicInfoAction" scope="prototype">
+		<property name="iTownBasicInfoService" ref="iTownBasicInfoService"/>
+	</bean>
+	
+	<bean id="SelTownBasicInfoAction" class="com.rural.admiDivisions.action.SelTownBasicInfoAction" scope="prototype">
+		<property name="selTownBasicInfoService" ref="selTownBasicInfoService"/>
+	</bean>
+	
+	
+	
+	<bean id="CountrytreeAction" class="com.rural.admiDivisions.action.CountrytreeAction" scope="prototype">
+		<property name="CountrytreeService" ref="CountrytreeService"/>
+	</bean>
+	<bean id="TowntreeAction" class="com.rural.admiDivisions.action.TowntreeAction" scope="prototype">
+		<property name="TowntreeService" ref="TowntreeService"/>
+	</bean>
+	<bean id="ViltreeAction" class="com.rural.admiDivisions.action.ViltreeAction" scope="prototype">
+		<property name="ViltreeService" ref="ViltreeService"/>
+	</bean>
+	
+
+</beans>

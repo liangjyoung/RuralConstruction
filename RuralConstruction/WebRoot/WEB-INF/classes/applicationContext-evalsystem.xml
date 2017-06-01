@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="IEvalSysService" class="com.rural.evalsystem.service.EvalSysService" scope="prototype">
+		<property name="evalSystDAO" ref="EvalSystDAO"></property> 
+		<property name="evalSystIndDAO" ref="EvalSystIndDAO"></property>
+		<property name="evalContDAO" ref="EvalContDAO"></property>
+		<property name="expertMajorCatgDAO" ref="ExpertMajorCatgDAO"></property>
+		<property name="evalSystStateDAO" ref="EvalSystStateDAO"></property>
+	</bean>
+	
+	
+	<bean id="IEvalMethService" class="com.rural.evalsystem.service.EvalMethService" scope="prototype">
+		<property name="evalMethDAO" ref="EvalContDAO"></property>
+		<property name="examMethDAO" ref="ExamMethDAO"></property>
+		<property name="evalSystIndDAO" ref="EvalSystIndDAO"></property>
+		
+		<property name="evalContInvesObjDAO" ref="EvalContInvesObjDAO"></property>
+		<property name="expertGraDAO" ref="ExpertGraDAO"></property>
+		<property name="evalContSubScoDAO" ref="EvalContSubScoDAO"></property>
+		
+		
+	</bean>
+	
+	<bean id="IEvalMethObjService" class="com.rural.evalsystem.service.EvalMethObjService" scope="prototype">
+			<property name="invesObjDAO" ref="InvesObjDAO"></property>
+			<property name="evalContInvesObjDAO" ref="EvalContInvesObjDAO"></property>
+			
+			<property name="evalContDAO" ref="EvalContDAO"></property>
+	</bean>
+	
+	<bean id="IEvalContObjService" class="com.rural.evalsystem.service.EvalContObjServcie" scope="prototype">
+		<property name="evalContInvesObjDAO" ref="EvalContInvesObjDAO"></property>
+	</bean>
+	
+	<bean id="IExamService" class="com.rural.evalsystem.service.IExamService" scope="prototype">
+		<property name="examMethDAO" ref="ExamMethDAO"></property>
+	</bean>
+	<!--评价体系状态下拉框-->
+	<bean id="SelEvalSysStateService" class="com.rural.select.service.SelEvalSysStateService" scope="prototype">
+		<property name="evalSystStateDAO" ref="EvalSystStateDAO"></property>
+	</bean>
+	
+	
+	<!-- Action -->
+	<bean id="EvalSysAction" class="com.rural.evalsystem.action.EvalSysAction" scope="prototype">
+		<property name="evalSysService" ref="IEvalSysService"/>
+	</bean>	
+
+	<bean id="EvalMethAction" class="com.rural.evalsystem.action.EvalMethAction" scope="prototype">
+		<property name="evalMethService" ref="IEvalMethService"/>
+		<property name="evalContDAO" ref="EvalContDAO"/>
+		
+		
+	</bean>	
+	
+	<bean id="EvalMethObjAction" class="com.rural.evalsystem.action.EvalMethObjAction" scope="prototype">
+		<property name="evalMethObjService" ref="IEvalMethObjService"/>
+		<property name="invesObjDAO" ref="InvesObjDAO"/>
+	</bean>	
+	
+	
+	<bean id="EvalContObjAction" class="com.rural.evalsystem.action.EvalContObjAction" scope="prototype">
+		<property name="iEvalContObjService" ref="IEvalContObjService"/>
+		
+	</bean>
+	<bean id="ExamAction" class="com.rural.evalsystem.action.ExamAction" scope="prototype">
+		<property name="examService" ref="IExamService"/>
+		
+	</bean>
+	<!--评价体系状态下拉框-->
+	<bean id="SelEvalSysStateAction" class="com.rural.select.action.SelEvalSysStateAction" scope="prototype">
+		<property name="selEvalSysStateService" ref="SelEvalSysStateService"/>
+		
+	</bean>
+	
+	
+	
+</beans>

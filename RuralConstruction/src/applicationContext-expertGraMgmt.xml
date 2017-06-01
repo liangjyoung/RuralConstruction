@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	<bean id="IGetVilService" class="com.rural.expertgramgmt.service.GetVilService" scope="prototype">
+		<property name="cityBasicInfoDAO" ref="CityBasicInfoDAO"></property> 
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property> 
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property> 
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property> 
+	</bean>
+	<bean id="IExpertGraMgmtService" class="com.rural.expertgramgmt.service.ExpertGraMgmtService" scope="prototype">
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property> 
+		<property name="vilDataCollRecDAO" ref="VilDataCollRecDAO"></property> 
+		<property name="vilEvalScoDAO" ref="VilEvalScoDAO"></property> 
+		<property name="evalContSubScoDAO" ref="EvalContSubScoDAO"></property> 
+	</bean>
+	<bean id="IExpertGraDetailService" class="com.rural.expertgramgmt.service.ExpertGraDetailService" scope="prototype">
+		<property name="evalContSubScoDAO" ref="EvalContSubScoDAO"></property> 
+		<property name="evalExpertDistDAO" ref="EvalExpertDistDAO"></property> 
+		<property name="expertGraDAO" ref="ExpertGraDAO"></property> 
+	</bean>
+	
+	<!-- Action -->
+	<bean id="GetVilAction" class="com.rural.expertgramgmt.action.GetVilAction" scope="prototype">
+		<property name="iGetVilService" ref="IGetVilService"/>
+	</bean>
+	<bean id="ExpertGraMgmtAction" class="com.rural.expertgramgmt.action.ExpertGraMgmtAction" scope="prototype">
+		<property name="iExpertGraMgmtService" ref="IExpertGraMgmtService"/>
+	</bean>
+	<bean id="ExpertGraDetailAction" class="com.rural.expertgramgmt.action.ExpertGraDetailAction" scope="prototype">
+		<property name="iExpertGraDetailService" ref="IExpertGraDetailService"/>
+	</bean>
+</beans>

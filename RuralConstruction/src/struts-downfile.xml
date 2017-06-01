@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="DownFiles" namespace="/" extends="struts-default,json-default">
+	
+        <action name="downfile_*" class="ApplicationTableAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+			<action name="downtable" class="com.rural.table.action.DownTableAction" >
+			<result name="success" type="stream">
+				<!--指定文件下载类型 application/octet-stream默认值可以下载所有类型 -->
+				<param name="contentType">application/x-zip-compressed</param>
+				<param name="inputName">downloadFile</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				
+				
+				<!-- 指定下载文件的缓存大小 -->
+				<param name="bufferSize">50000000</param>
+			</result>
+		</action>
+	</package>
+	
+</struts>    

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.multipart.maxSize" value="20971520"></constant>
+	<package name="UploadAndDownload" namespace="/" extends="struts-default,json-default">
+		<action name="uploadDic" class="UploadDicAction" method="uploadDic"></action>
+
+         <action name="uploadEntry" class="UploadEntryAction" method="uploadEntry"></action>
+         <action name="uploadVil" class="UploadVilAction" method="uploadVil"></action>
+           <action name="uploadImg" class="UploadImgAction" method="uploadImg"></action>
+
+       
+        <action name="uploadTown" class="UploadTownAction" method="uploadTown"></action>
+        <action name="uploadCountry" class="UploadCountryAction" method="uploadCountry"></action>
+        <action name="uploadCity" class="UploadCityAction" method="uploadCity"></action>
+        <action name="uploadImg" class="UploadImgAction" method="uploadImg"></action>
+        
+         <action name="deleteImg" class="UploadImgAction" method="deleteImg">
+         <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+         </action>
+         <action name="uploadAll" class="UploadAllAction" method="uploadAll"></action>
+        
+         <action name="deleteAll" class="UploadAllAction" method="deleteAll">
+         <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+         </action>
+        
+        
+
+        <action name="uploadProgress" class="com.rural.tool.UploadProgressAction">
+        	<result type="json">
+				<param name="root">dataMap</param>
+			</result>
+        </action>
+        
+         <action name="downloadDic" class="com.rural.upload.action.UploadDicAction">
+          <!-- 指定被下载资源的位置 -->
+          <!-- <param name="inputPath">\download\学生信息模板.xls</param> -->
+          <!-- 配置结果类型为stream的结果 -->
+          <result name="success" type="stream">
+             <!-- 指定下载文件的类型 -->
+             <param name="contentType">application/vnd.ms-excel</param>
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">targetFile</param>
+             <param name="contentDisposition">attachement;fileName="${fileName}"</param>             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+          </result>
+        </action>
+        
+         <action name="downloadEntry" class="com.rural.upload.action.UploadEntryAction">
+          <!-- 指定被下载资源的位置 -->
+          <!-- <param name="inputPath">\download\学生信息模板.xls</param> -->
+          <!-- 配置结果类型为stream的结果 -->
+          <result name="success" type="stream">
+             <!-- 指定下载文件的类型 -->
+             <param name="contentType">application/vnd.ms-excel</param>
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">is</param>
+             <param name="contentDisposition">attachement;fileName="${fileNameDownload}"</param>             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+          </result>
+        </action>
+        
+        
+         <action name="downloadTown" class="com.rural.upload.action.UploadTownAction">
+          <!-- 指定被下载资源的位置 -->
+          <!-- <param name="inputPath">\download\学生信息模板.xls</param> -->
+          <!-- 配置结果类型为stream的结果 -->
+          <result name="success" type="stream">
+             <!-- 指定下载文件的类型 -->
+             <param name="contentType">application/vnd.ms-excel</param>
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">iss</param>
+             <param name="contentDisposition">attachement;fileName="${fileNameDownload}"</param>             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+          </result>
+        </action>
+        
+         <action name="downloadCountry" class="com.rural.upload.action.UploadCountryAction">
+          <!-- 指定被下载资源的位置 -->
+          <!-- <param name="inputPath">\download\学生信息模板.xls</param> -->
+          <!-- 配置结果类型为stream的结果 -->
+          <result name="success" type="stream">
+             <!-- 指定下载文件的类型 -->
+             <param name="contentType">application/vnd.ms-excel</param>
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">isss</param>
+             <param name="contentDisposition">attachement;fileName="${fileNameDownload}"</param>             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+          </result>
+        </action>
+        
+        
+         <action name="downloadCity" class="com.rural.upload.action.UploadCityAction">
+          <!-- 指定被下载资源的位置 -->
+          <!-- <param name="inputPath">\download\学生信息模板.xls</param> -->
+          <!-- 配置结果类型为stream的结果 -->
+          <result name="success" type="stream">
+             <!-- 指定下载文件的类型 -->
+             <param name="contentType">application/vnd.ms-excel</param>
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">issss</param>
+             <param name="contentDisposition">attachement;fileName="${fileNameDownload}"</param>             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+          </result>
+        </action>
+        
+        
+         <action name="downloadVil" class="com.rural.upload.action.UploadVilAction">
+          <!-- 指定被下载资源的位置 -->
+          <!-- <param name="inputPath">\download\学生信息模板.xls</param> -->
+          <!-- 配置结果类型为stream的结果 -->
+          <result name="success" type="stream">
+             <!-- 指定下载文件的类型 -->
+             <param name="contentType">application/vnd.ms-excel</param>
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">isssss</param>
+             <param name="contentDisposition">attachement;fileName="${fileNameDownload}"</param>             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+          </result>
+        </action>
+	</package>
+
+	
+	
+</struts>    

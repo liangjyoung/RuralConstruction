@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="cityBasicInfo" namespace="/" extends="struts-default,json-default">
+	
+        <action name="CityBasicInfo_*" class="CityBasicInfoAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		<action name="cityInformationToExcel" class="CityBasicInfoAction" method="exportToExcelCity">
+            <result name="excel" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">is</param>
+            <param name="contentDisposition">filename="CityInformation.xls"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+        </action>
+		
+	</package>
+	
+	<package name="countryBasicInfo" namespace="/" extends="struts-default,json-default">
+	
+        <action name="CountryBasicInfo_*" class="CountryBasicInfoAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		<action name="countryInformationToExcel" class="CountryBasicInfoAction" method="exportToExcelCountry">
+            <result name="excel" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">is</param>
+            <param name="contentDisposition">filename="CountryInformation.xls"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+        </action>
+	</package>
+	
+	<package name="townBasicInfo" namespace="/" extends="struts-default,json-default">
+	
+        <action name="TownBasicInfo_*" class="TownBasicInfoAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		 <action name="townInformationToExcel" class="TownBasicInfoAction" method="exportToExcelTown">
+            <result name="excel" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">is</param>
+            <param name="contentDisposition">filename="TownInformation.xls"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+        </action>
+	</package>
+	
+	
+	
+	<package name="seltownBasicInfo" namespace="/" extends="struts-default">
+		<action name="seltownBasicInfo_*" class="SelTownBasicInfoAction" method="{1}" ></action>
+	</package>
+	
+	<package name="CountrytreeAction" namespace="/" extends="struts-default,json-default">
+	
+        <action name="coutree_*" class="CountrytreeAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	<package name="TowntreeAction" namespace="/" extends="struts-default,json-default">
+	
+        <action name="towntree_*" class="TowntreeAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	<package name="ViltreeAction" namespace="/" extends="struts-default,json-default">
+	
+        <action name="viltree_*" class="ViltreeAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+</struts>    

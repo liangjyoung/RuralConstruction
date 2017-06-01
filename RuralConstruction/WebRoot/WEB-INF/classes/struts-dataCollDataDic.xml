@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	
+
+	<package name="dataCollDataDic1" namespace="/" extends="struts-default,json-default">
+        <action name="DataCollDataDic_*" class="DataCollDataDicAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		 <action name="dicInformationToExcel" class="DataCollDataDicAction" method="exportToExcelDic">
+            <result name="excel" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">is</param>
+            <param name="contentDisposition">filename="DicInformation.xls"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        
+         <action name="dicInformationToExcelNow" class="DataCollDataDicAction" method="exportToExcelDicNow">
+            <result name="excel" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">iss</param>
+            <param name="contentDisposition">filename="DicInformation.xls"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+        </action>
+	</package>
+	
+	<package name="dataCollDicEntry1" namespace="/" extends="struts-default,json-default">
+	
+        <action name="DataCollDicEntry_*" class="DataCollDicEntryAction" method="{1}" >
+	        <result type="json" name="success">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		 <action name="entryInformationToExcel" class="DataCollDicEntryAction" method="exportToExcelEntry">
+            <result name="excel" type="stream">
+            <param name="contentType">application/vnd.ms-excel</param>
+            <param name="inputName">is</param>
+            <param name="contentDisposition">filename="EntryInformation.xls"</param>
+            <param name="bufferSize">1024</param>
+            </result>
+        </action>
+	</package>
+	
+	
+	<!-- 数据字典编码选择框 -->
+	<package name="seldataCollDataDic" namespace="/" extends="struts-default">
+		<action name="seldataCollDataDic_*" class="SelDataCollDataDicAction" method="{1}" ></action>
+	</package>
+</struts>    

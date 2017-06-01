@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="EvalSystem" namespace="/" extends="struts-default,json-default">
+	
+        <action name="evalsys_*" class="EvalSysAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="EvalMeth" namespace="/" extends="struts-default,json-default">
+	
+        <action name="evalmeth_*" class="EvalMethAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="EvalMethObj" namespace="/" extends="struts-default,json-default">
+	
+        <action name="evalmethobj_*" class="EvalMethObjAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="EvalContObj" namespace="/" extends="struts-default,json-default">
+	
+        <action name="evalcontobj_*" class="EvalContObjAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="ExamMeth" namespace="/" extends="struts-default">
+		<action name="exam_*" class="ExamAction" method="{1}"></action>
+	</package>
+	
+	<package name="selEvalSystState" namespace="/" extends="struts-default">
+		<action name="selstate_*" class="SelEvalSysStateAction" method="{1}" ></action>
+	</package>
+	
+</struts>    

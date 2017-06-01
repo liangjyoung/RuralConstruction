@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	<bean id="IExpertOLGraService" class="com.rural.expertolgra.service.ExpertOLGraService" scope="prototype">
+		<property name="expertDAO" ref="ExpertDAO"></property> 
+		<property name="evalExpertDistDAO" ref="EvalExpertDistDAO"></property> 
+		<property name="evalSystIndDAO" ref="EvalSystIndDAO"></property> 
+		<property name="evalContDAO" ref="EvalContDAO"></property> 
+		<property name="expertGraDAO" ref="ExpertGraDAO"></property>
+		<property name="evalSystDAO" ref="EvalSystDAO"></property>
+		<property name="evalContSubScoDAO" ref="EvalContSubScoDAO"></property>
+		<property name="vilEvalScoDAO" ref="VilEvalScoDAO"></property> 
+	</bean>
+	<bean id="IEvalContObjAttriService" class="com.rural.expertolgra.service.EvalContObjAttriService" scope="prototype">
+		<property name="evalContInvesObjDAO" ref="EvalContInvesObjDAO"></property>
+		<property name="invesObjDataDAO" ref="InvesObjDataDAO"></property>
+		<property name="vilDataCollRecDAO" ref="VilDataCollRecDAO"></property>
+		<property name="evalExpertDistDAO" ref="EvalExpertDistDAO"></property>
+	</bean>
+	<bean id="IEvalContFileDataService" class="com.rural.expertolgra.service.EvalContFileDataService" scope="prototype">
+		<property name="vilFilDataDAO" ref="VilFilDataDAO"></property>
+		<property name="evalContInvesObjDAO" ref="EvalContInvesObjDAO"></property>
+		<property name="evalExpertDistDAO" ref="EvalExpertDistDAO"></property>
+	</bean>
+	
+	<!-- Action -->
+	<bean id="ExpertOLGraAction" class="com.rural.expertolgra.action.ExpertOLGraAction" scope="prototype">
+		<property name="iExpertOLGraService" ref="IExpertOLGraService"/>
+	</bean>
+	<bean id="EvalContObjAttriAction" class="com.rural.expertolgra.action.EvalContObjAttriAction" scope="prototype">
+		<property name="iEvalContObjAttriService" ref="IEvalContObjAttriService"/>
+	</bean>	
+	<bean id="EvalContFileDataAction" class="com.rural.expertolgra.action.EvalContFileDataAction" scope="prototype">
+		<property name="iEvalContFileDataService" ref="IEvalContFileDataService"/>
+	</bean>	
+</beans>

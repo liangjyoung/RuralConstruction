@@ -1,0 +1,262 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<div class="navbar navbar-default navbar-fixed-top" id="navbar" style="min-height: 27px;">
+			<script type="text/javascript">
+				try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="navbar-container navbar-fixed-top" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand" style="padding: 2px 0px 0px 0px;">
+						<small style="font-size: 80%;font-family:'黑体'">
+							<i class="icon-leaf"></i>
+							美丽乡村建设标准化建设管理与评价系统
+						</small>
+						<small style="font-size: 65%;font-family:'仿宋';color:#d8d8d8;">
+							（莱芜市委农工办）
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header  pull-right" role="navigation" style="padding:5px 5px;">
+					<button id="exit" class="btn-primary" style="border:none;background-color:inherit;display:block;color:inherit;">
+							<i class="icon-off"></i>
+							退出
+						</button>
+				</div>
+				
+				<div  id="updatepassword" class="navbar-header  pull-right" role="navigation" style="padding:5px 5px;">
+					<button  class="btn-primary" style="border:none;background-color:inherit;display:block;color:inherit;">
+							<i class="icon-cog"></i>
+							修改密码
+						</button>
+				</div>
+				<div class="navbar-header  pull-right" role="navigation">
+					<div class="btn-group" style="padding:5px 0px 0px;display:none;">
+						<button data-toggle="dropdown" class="btn-primary" style="border:none;background-color:inherit;display:block;color:inherit;">
+							角色切换
+							<i class="icon-angle-down icon-on-right"></i>
+						</button>
+
+						<ul  id="rolelist" class="dropdown-menu" style="min-width: 0px;">
+							<li><a id="role0" href="#" style="display:none" ></a></li>
+							<li><a id="role1" href="#" style="display:none"></a></li>
+							<li><a id="role2" href="#" style="display:none"></a></li>
+							<li><a id="role3" href="#" style="display:none"></a></li>
+							<li><a id="role4" href="#" style="display:none"></a></li>
+							<li><a id="role5" href="#" style="display:none"></a></li>
+							<li><a id="role6" href="#" style="display:none"></a></li>
+							<li><a id="role7" href="#" style="display:none"></a></li>
+						</ul>
+					</div><!-- /btn-group -->
+				</div><!-- /.navbar-header -->
+				
+				<div class="navbar-header pull-right" role="navigation" style="padding:6px 5px;">
+					角色：<b style="color:#2204BD" id="currentrole">	</b>
+					
+				</div>
+				<div class="navbar-header pull-right" role="navigation" style="padding:6px 10px;">
+					用户名：<b style="color:#2204BD" ><%=username%> </b>
+					
+				</div>
+			</div><!-- /.container -->
+		</div>
+		
+		<script>
+		$("#exit").click(function(){
+			$.post("../login_logout.action",null,function(data){
+				location.reload(true);
+			window.location.href = "../login.jsp";
+			});
+		}); 
+		$("#updatepassword").click(function(){
+			window.location.href = "modifi.jsp";
+		}); 
+		</script>
+		<script>
+		var changeroleid;
+		
+		$("#role0").click(function(){
+			changeroleid=document.getElementById("role0").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		$("#role1").click(function(){
+			changeroleid=document.getElementById("role1").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		$("#role2").click(function(){
+			changeroleid=document.getElementById("role2").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		$("#role3").click(function(){
+			changeroleid=document.getElementById("role3").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		$("#role4").click(function(){
+			changeroleid=document.getElementById("role4").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		$("#role5").click(function(){
+			changeroleid=document.getElementById("role5").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		$("#role6").click(function(){
+			changeroleid=document.getElementById("role6").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		$("#role7").click(function(){
+			changeroleid=document.getElementById("role7").name;
+			configUrl="../login_loadroleid.action";
+			$.ajax({
+				url:configUrl,
+				type:'get',
+				dataType:'json', 
+				async:false,
+				data		: {
+						'changeroleid'  : changeroleid
+					},
+				
+				success:function(data)
+					{  
+						//成功则跳转页面
+						changeroleid==null;
+						window.location.href = "index.jsp";
+					},
+					error:function(e){ 
+						  alert("请求出错");
+					}, 
+			    });
+		}); 
+		</script>

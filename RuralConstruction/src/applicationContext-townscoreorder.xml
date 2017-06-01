@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="iTotalScoreOrderService" class="com.rural.townscoreorder.service.TotalScoreOrderService" scope="prototype">
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+		<property name="vilDataCollRecDAO" ref="VilDataCollRecDAO"></property>
+		<property name="vilEvalScoDAO" ref="VilEvalScoDAO"></property>
+	</bean>
+	<bean id="iFirstLevelScoreOrderService" class="com.rural.townscoreorder.service.FirstLevelScoreOrderService" scope="prototype">
+	<property name="evalSystIndDAO" ref="EvalSystIndDAO"></property>
+	<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+	<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+	<property name="vilDataCollRecDAO" ref="VilDataCollRecDAO"></property>
+	<property name="vilEvalScoDAO" ref="VilEvalScoDAO"></property>
+	<property name="levelsIndScoDAO" ref="LevelsIndScoDAO"></property>
+	</bean>
+	
+	<!-- Action -->
+	<bean id="TotalScoreOrderAction" class="com.rural.townscoreorder.action.TotalScoreOrderAction" scope="prototype">
+		<property name="iTotalScoreOrderService" ref="iTotalScoreOrderService"/>
+	</bean>	
+	<bean id="FirstLevelScoreOrderAction" class="com.rural.townscoreorder.action.FirstLevelScoreOrderAction" scope="prototype">
+		<property name="iFirstLevelScoreOrderService" ref="iFirstLevelScoreOrderService"/>
+	</bean>	
+
+</beans>

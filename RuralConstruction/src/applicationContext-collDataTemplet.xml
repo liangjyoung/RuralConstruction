@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="iInvesProTreeService" class="com.rural.colldatatemplet.service.InvesProTreeService" scope="prototype">	
+		<property name="invesProDAO" ref="InvesProDAO"/>
+		<property name="invesObjDAO" ref="InvesObjDAO"/>
+	</bean>
+	
+	<bean id="IInvesObjService" class="com.rural.colldatatemplet.service.InvesObjService" scope="prototype">	
+		<property name="invesObjDAO" ref="InvesObjDAO"/>
+		<property name="invesProDAO" ref="InvesProDAO"/>
+		<property name="invesObjAttriDAO" ref="InvesObjAttriDAO"/>
+		<property name="dataCollDataDicDAO" ref="DataCollDataDicDAO"/>
+		
+		<property name="evalContInvesObjDAO" ref="EvalContInvesObjDAO"/>
+		<property name="invesObjDataDAO" ref="InvesObjDataDAO"/>
+		<property name="vilFilDataDAO" ref="VilFilDataDAO"/>
+	
+	
+	
+		
+	</bean>
+	
+	
+	
+	<!-- Action -->
+	<bean id="InvesProTreeAction" class="com.rural.colldatatemplet.action.InvesProTreeAction" scope="prototype">
+		<property name="iInvesProTreeService" ref="iInvesProTreeService"/>
+	</bean>
+	
+	<bean id="InvesObjAction" class="com.rural.colldatatemplet.action.InvesObjAction" scope="prototype">
+		<property name="iInvesObjService" ref="IInvesObjService"/>
+
+	</bean>
+	
+	
+</beans>

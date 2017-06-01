@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="iEduService" class="com.rural.basicdata.service.EduService" scope="prototype">
+		<property name="edudao" ref="EduDAO"></property>
+		<property name="invgatdao" ref="InvgatDAO"></property>
+		<property name="expertdao" ref="ExpertDAO"></property>
+	</bean>
+	 
+	<bean id="selEduService" class="com.rural.select.service.SelEduService" scope="prototype">
+		<property name="eduDAO" ref="EduDAO"></property>
+	</bean>
+	
+	<bean id="iEvalSystStateService" class="com.rural.basicdata.service.EvalSystStateService" scope="prototype">
+		<property name="evalSystStatedao" ref="EvalSystStateDAO"></property>
+		<property name="evalSystdao" ref="EvalSystDAO"></property>
+		
+	</bean>
+	
+	<bean id="iExpertMajorCatgService" class="com.rural.basicdata.service.ExpertMajorCatgService" scope="prototype">
+		<property name="expertMajorCatgdao" ref="ExpertMajorCatgDAO"></property>
+		<property name="expertdao" ref="ExpertDAO"></property>
+		<property name="evalSystInddao" ref="EvalSystIndDAO"></property>
+	
+	</bean>
+	
+	<bean id="selExpertMajorCatgService" class="com.rural.select.service.SelExpertMajorCatgService" scope="prototype">
+		<property name="expertMajorCatgDAO" ref="ExpertMajorCatgDAO"></property>
+	</bean>
+	
+	<bean id="iGoveFilClfyService" class="com.rural.basicdata.service.GoveFilClfyService" scope="prototype">
+		<property name="goveFilClfydao" ref="GoveFilClfyDAO"></property>
+		<property name="profilDAO" ref="ProFilDAO"></property>
+		<property name="citysfilDAO" ref="CitysFilDAO"></property>
+		<property name="countryfilDAO" ref="CountryFilDAO"></property>
+		<property name="townfilDAO" ref="TownFilDAO"></property>
+		<property name="vilfilDAO" ref="VilFilDAO"></property>
+	</bean>
+	
+	<bean id="iNationService" class="com.rural.basicdata.service.NationService" scope="prototype">
+		<property name="nationdao" ref="NationDAO"></property>
+		<property name="invgatdao" ref="InvgatDAO"></property>
+		<property name="expertdao" ref="ExpertDAO"></property>
+	</bean>
+	
+	<bean id="selNationService" class="com.rural.select.service.SelNationService" scope="prototype">
+		<property name="nationDAO" ref="NationDAO"></property>
+		
+	</bean>
+	
+	<bean id="iPolService" class="com.rural.basicdata.service.PolService" scope="prototype">
+		<property name="poldao" ref="PolDAO"></property>
+		<property name="invgatdao" ref="InvgatDAO"></property>
+		<property name="expertdao" ref="ExpertDAO"></property>
+	</bean>
+	
+	<bean id="selPolService" class="com.rural.select.service.SelPolService" scope="prototype">
+		<property name="polDAO" ref="PolDAO"></property>
+	</bean>
+	
+	<bean id="iSexService" class="com.rural.basicdata.service.SexService" scope="prototype">
+		<property name="sexdao" ref="SexDAO"></property>
+		<property name="invgatdao" ref="InvgatDAO"></property>
+		<property name="expertdao" ref="ExpertDAO"></property>
+	</bean>
+	
+	<bean id="selSexService" class="com.rural.select.service.SelSexService" scope="prototype">
+		<property name="sexDAO" ref="SexDAO"></property>
+	</bean>
+	
+	<bean id="iInvesObjAttriService" class="com.rural.basicdata.service.InvesObjAttriService" scope="prototype">
+		<property name="invesObjAttridao" ref="InvesObjAttriDAO"></property>
+		<property name="invesObjdao" ref="InvesObjDAO"></property>
+		
+	</bean>
+	
+	<bean id="selInvesObjAttriService" class="com.rural.select.service.SelInvesObjAttriService" scope="prototype">
+		<property name="invesObjAttriDAO" ref="InvesObjAttriDAO"></property>
+	</bean>
+	<bean id="IScoreLevManagerService" class="com.rural.basicdata.service.ScoreLevManagerService" scope="prototype">
+		<property name="scoDAO" ref="ScoLevDAO"></property>
+	</bean>
+	
+	
+	
+	
+	<!-- Action -->
+	<bean id="EduAction" class="com.rural.basicdata.action.EduAction" scope="prototype">
+		<property name="iEduService" ref="iEduService"/>
+	</bean>	
+	
+	<bean id="SelEduAction" class="com.rural.select.action.SelEduAction" scope="prototype">
+		<property name="selEduService" ref="selEduService"/>
+	</bean>	
+	
+	
+	<bean id="EvalSystStateAction" class="com.rural.basicdata.action.EvalSystStateAction" scope="prototype">
+		<property name="iEvalSystStateService" ref="iEvalSystStateService"/>
+	</bean>	
+	
+	<bean id="ExpertMajorCatgAction" class="com.rural.basicdata.action.ExpertMajorCatgAction" scope="prototype">
+		<property name="iExpertMajorCatgService" ref="iExpertMajorCatgService"/>
+	</bean>	
+	
+	<bean id="SelExpertMajorCatgAction" class="com.rural.select.action.SelExpertMajorCatgAction" scope="prototype">
+		<property name="selExpertMajorCatgService" ref="selExpertMajorCatgService"/>
+	</bean>	
+	
+	<bean id="GoveFilClfyAction" class="com.rural.basicdata.action.GoveFilClfyAction" scope="prototype">
+		<property name="iGoveFilClfyService" ref="iGoveFilClfyService"/>
+	</bean>	
+	
+	<bean id="NationAction" class="com.rural.basicdata.action.NationAction" scope="prototype">
+		<property name="iNationService" ref="iNationService"/>
+	</bean>	
+	
+	<bean id="SelNationAction" class="com.rural.select.action.SelNationAction" scope="prototype">
+		<property name="selNationService" ref="selNationService"/>
+	</bean>	
+	
+	<bean id="PolAction" class="com.rural.basicdata.action.PolAction" scope="prototype">
+		<property name="iPolService" ref="iPolService"/>
+	</bean>	
+	
+	<bean id="SelPolAction" class="com.rural.select.action.SelPolAction" scope="prototype">
+		<property name="selPolService" ref="selPolService"/>
+	</bean>
+	
+	<bean id="SexAction" class="com.rural.basicdata.action.SexAction" scope="prototype">
+		<property name="iSexService" ref="iSexService"/>
+	</bean>	
+	
+	<bean id="SelSexAction" class="com.rural.select.action.SelSexAction" scope="prototype">
+		<property name="selSexService" ref="selSexService"/>
+	</bean>		
+	
+	<bean id="InvesObjAttriAction" class="com.rural.basicdata.action.InvesObjAttriAction" scope="prototype">
+		<property name="iInvesObjAttriService" ref="iInvesObjAttriService"/>
+	</bean>	
+	
+	<bean id="SelInvesObjAttriAction" class="com.rural.select.action.SelInvesObjAttriAction" scope="prototype">
+		<property name="selInvesObjAttriService" ref="selInvesObjAttriService"/>
+	</bean>	
+	
+	<bean id="ScoreLevManagerAction" class="com.rural.basicdata.action.ScoreLevManagerAction" scope="prototype">
+		<property name="scoreLevManagerService" ref="IScoreLevManagerService"/>
+	</bean>	
+	
+</beans>

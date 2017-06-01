@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="ExpertEval" namespace="/" extends="struts-default,json-default">
+	
+        <action name="experteval_*" class="ExpertEvalAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	<package name="Expertdis" namespace="/" extends="struts-default,json-default">
+	
+        <action name="expertdis_*" class="ExpertDistAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="EvalContScore" namespace="/" extends="struts-default,json-default">
+	
+        <action name="evalcontscores_*" class="EvalContScoreAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+</struts>    

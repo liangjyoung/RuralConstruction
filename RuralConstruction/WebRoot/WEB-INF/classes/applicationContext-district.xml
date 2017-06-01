@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="iDistrictService" class="com.rural.invgatdwork.service.DistrictService" scope="prototype">
+		<property name="cityBasicInfoDAO" ref="CityBasicInfoDAO"></property>
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+	    <property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+		<property name="townContDAO" ref="TownContDAO"></property>
+		<property name="countryContDAO" ref="CountryContDAO"></property>
+		<property name="citysContDAO" ref="CitysContDAO"></property>
+		<property name="proBasicInfoDAO" ref="ProBasicInfoDAO"></property>
+	</bean>
+	
+	
+	
+	
+	<bean id="iAdmiTreeService" class="com.rural.admiTree.service.AdmiTreeService" scope="prototype">
+		<property name="cityBasicInfoDAO" ref="CityBasicInfoDAO"></property>
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+	    <property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+		
+		<property name="proBasicInfoDAO" ref="ProBasicInfoDAO"></property>
+	</bean>
+	
+	<!-- Action -->
+	<bean id="DistrictAction" class="com.rural.invgatdwork.action.DistrictAction" scope="prototype">
+		<property name="iDistrictService" ref="iDistrictService"/>
+	</bean>	
+	<bean id="DistrictAction1" class="com.rural.invgatdwork.action.DistrictAction1" scope="prototype">
+		<property name="iDistrictService" ref="iDistrictService"/>
+	</bean>	
+	
+	
+	<bean id="AdmiTreeAction" class="com.rural.admiTree.action.AdmiTreeAction" scope="prototype">
+		<property name="iAdmiTreeService" ref="iAdmiTreeService"/>
+	</bean>		
+		
+
+</beans>

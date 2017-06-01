@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="CitysFil" namespace="/" extends="struts-default,json-default">
+	    <action name="citysfil_*" class="CitysFilAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="CountryFil" namespace="/" extends="struts-default,json-default">
+	   <action name="countryfil_*" class="CountryFilAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="TownFil" namespace="/" extends="struts-default,json-default">
+	   <action name="townfil_*" class="TownFilAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="VilFil" namespace="/" extends="struts-default,json-default">
+	
+        <action name="vilfil_*" class="VilFilAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="selbeloDivi" namespace="/" extends="struts-default">
+		<action name="selbeloDivi_*" class="SelBeloDiviAction" method="{1}" ></action>
+	</package>
+	
+</struts>    

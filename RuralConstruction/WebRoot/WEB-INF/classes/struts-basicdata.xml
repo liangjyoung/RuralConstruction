@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="edu" namespace="/" extends="struts-default,json-default">
+	
+        <action name="Edu_*" class="EduAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="seledu" namespace="/" extends="struts-default">
+		<action name="seledu_*" class="SelEduAction" method="{1}" ></action>
+	</package>
+	
+	
+	
+	<package name="evalSystState" namespace="/" extends="struts-default,json-default">
+	
+        <action name="EvalSystState_*" class="EvalSystStateAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="expertMajorCatg" namespace="/" extends="struts-default,json-default">
+	
+        <action name="ExpertMajorCatg_*" class="ExpertMajorCatgAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="selexpertMajorCatg" namespace="/" extends="struts-default">
+		<action name="selexpertMajorCatg_*" class="SelExpertMajorCatgAction" method="{1}" ></action>
+	</package>
+	
+	<package name="goveFilClfy" namespace="/" extends="struts-default,json-default">
+	
+        <action name="GoveFilClfy_*" class="GoveFilClfyAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="nation" namespace="/" extends="struts-default,json-default">
+	
+        <action name="Nation_*" class="NationAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="selnation" namespace="/" extends="struts-default">
+		<action name="selnation_*" class="SelNationAction" method="{1}" ></action>
+	</package>
+	
+	<package name="pol" namespace="/" extends="struts-default,json-default">
+	
+        <action name="Pol_*" class="PolAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="selpol" namespace="/" extends="struts-default">
+		<action name="selpol_*" class="SelPolAction" method="{1}" ></action>
+	</package>
+	
+	<package name="sex" namespace="/" extends="struts-default,json-default">
+	
+        <action name="Sex_*" class="SexAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	
+	<package name="selsex" namespace="/" extends="struts-default">
+		<action name="selsex_*" class="SelSexAction" method="{1}" ></action>
+	</package>
+	
+	<package name="invesObjAttri" namespace="/" extends="struts-default,json-default">
+	
+        <action name="InvesObjAttri_*" class="InvesObjAttriAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="selinvesObjAttri" namespace="/" extends="struts-default">
+		<action name="selinvesObjAttri_*" class="SelInvesObjAttriAction" method="{1}" ></action>
+	</package>
+	<package name="ScoreManager" namespace="/" extends="struts-default,json-default">
+        <action name="scorelevlmanager_*" class="ScoreLevManagerAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+	</package>
+	
+</struts>    

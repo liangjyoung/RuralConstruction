@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="iCTVRankService" class="com.rural.ctvrank.service.CTVRankService" scope="prototype">
+		<property name="cityBasicInfoDAO" ref="CityBasicInfoDAO"></property>
+		<property name="countryBasicInfoDAO" ref="CountryBasicInfoDAO"></property>
+		<property name="townBasicInfoDAO" ref="TownBasicInfoDAO"></property>
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+		<property name="vilDataCollRecDAO" ref="VilDataCollRecDAO"></property>
+		<property name="vilEvalScoDAO" ref="VilEvalScoDAO"></property>
+		<property name="evalSystIndDAO" ref="EvalSystIndDAO"></property>
+		<property name="levelsIndScoDAO" ref="LevelsIndScoDAO"></property>
+	</bean>
+	
+	<!-- Action -->
+	<bean id="CTVRankAction" class="com.rural.ctvrank.action.CTVRankAction" scope="prototype">
+		<property name="iCTVRankService" ref="iCTVRankService"/>
+	</bean>	
+
+
+</beans>

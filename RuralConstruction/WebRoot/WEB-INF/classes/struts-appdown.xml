@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"/>
+	<package name="DownBaseData" namespace="/" extends="struts-default,json-default">
+	
+        <action name="downapp_*" class="DownBaseDataAction" method="{1}" >
+	        <result type="json">
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		
+		<action name="downProgress" class="com.rural.app.action.DownProgressAction">
+        	<result type="json">
+				<param name="root">dataMap</param>
+			</result>
+        </action>
+		
+		<action name="downappfile" class="com.rural.app.action.DownBaseDataAction">
+			 <!-- 配置结果类型为stream的结果 -->
+          <result name="success" type="stream">
+           <!-- 指定下载文件的类型 -->
+             <param name="contentType">application/vnd.ms-excel</param>
+             <!-- 指定下载文件的位置 -->
+             <param name="inputName">isssss</param>
+             <param name="contentDisposition">attachement;fileName="${fileNameDownload}"</param>             
+             <!-- 指定下载文件的缓冲大小 -->
+             <param name="bufferSize">50000000</param>
+          </result>
+		</action>
+	</package>
+
+</struts>    

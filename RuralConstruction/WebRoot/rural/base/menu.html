@@ -1,0 +1,277 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+
+<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+					
+					<ul class="nav nav-list" id="leftmenu">
+						<li  id="01" style="display:none;">
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 用户管理 </span>
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li id="0101" style="display:none">
+								  <a href="UserManager/SysRole.jsp">
+									<i class="icon-double-angle-right"></i>
+									角色
+								  </a>
+								</li>
+
+								<li id="0102" style="display:none;">
+								  <a href="UserManager/SysUser.jsp">
+									<i class="icon-double-angle-right"></i>
+									用户
+								  </a>
+								</li>
+
+							</ul>
+						</li>
+
+						<li id="02" style="display:none;">
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 基础数据管理 </span>
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+								<li id="0201" style="display:none;">
+									<a href="BasicDataManager/BasicCodeData.jsp" class="dropdown-toggle">
+										<i class="icon-double-angle-right"></i>
+											基础编码数据	
+									</a>
+								</li>
+								
+											
+								<li id="0202" style="display:none;">
+									<a href="BasicDataManager/AdmiDivisions.jsp">
+										<i class="icon-double-angle-right"></i>
+											镇及以上行政区划
+									</a>
+								</li>
+										
+								<li id="0203" style="display:none;">
+									<a href="BasicDataManager/VillageCompartment.jsp">
+										<i class="icon-double-angle-right"></i>
+											村庄信息
+									</a>
+								</li>
+									
+								<li id="0204" style="display:none;">
+									<a id="a0204" href="BasicDataManager/Expert.jsp">
+										<i class="icon-double-angle-right"></i>
+											评价专家
+									</a>
+								</li>
+								
+								<li id="0205" style="display:none;">
+									<a href="BasicDataManager/Invgat.jsp">
+										<i class="icon-double-angle-right"></i>
+											调查员
+									</a>
+								</li>
+								
+								<li id="0206" style="display:none;">
+									<a href="BasicDataManager/DataCollDataDic.jsp">
+										<i class="icon-double-angle-right"></i>
+											数据字典
+									</a>
+								</li>
+								
+								<li id="0207" style="display:none;">
+									<a href="BasicDataManager/BudgetPrice.jsp">
+										<i class="icon-double-angle-right"></i>
+											预算价格
+									</a>
+								</li>
+								
+								<li id="0208" style="display:none;">
+									<a href="BasicDataManager/CollDataTemplet.jsp">
+										<i class="icon-double-angle-right"></i>
+											采集数据模板
+									</a>
+								</li>
+								
+								<li id="0209" style="display:none;">
+									<a href="BasicDataManager/EvalSystem.jsp">
+										<i class="icon-double-angle-right"></i>
+											评价体系
+									</a>
+								</li>
+								<li id="0210" style="display:none;">
+									<a href="BasicDataManager/DownBaseDataApp.jsp">
+										<i class="icon-double-angle-right"></i>
+											基础数据导出
+									</a>
+								</li>
+							</ul>
+							
+						</li>
+						
+						<li id="03" style="display:none;">
+							<a id="a03" href="ContactManager/Contact.jsp" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 联系人管理 </span>
+
+							</a>
+						</li>
+						
+						<li id="04" style="display:none;">
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 政府文件管理 </span>
+
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">
+							
+								<li id="0401" style="display:none;">
+									<a href="GoveFilManager/CitysFil.jsp">
+										<i class="icon-double-angle-right"></i>
+											地市文件
+									</a>
+								</li>
+								
+								<li id="0402" style="display:none;">
+									<a href="GoveFilManager/CountryFil.jsp">
+										<i class="icon-double-angle-right"></i>
+											县文件
+									</a>
+								</li>
+								
+								<li id="0403" style="display:none;">
+									<a href="GoveFilManager/TownFil.jsp">
+										<i class="icon-double-angle-right"></i>
+											镇文件
+									</a>
+								</li>
+
+								<li id="0404" style="display:none;">
+									<a href="GoveFilManager/VilFil.jsp">
+										<i class="icon-double-angle-right"></i>
+											村文件
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+						<li id="05" style="display:none;">
+							<a href="CollAssignTask/CollAssignTask2.jsp">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 采集任务分配 </span>
+							</a>
+						</li>
+						
+						<li id="06" style="display:none;">
+							<a href="ObjColldData/ObjColldDataInves.jsp">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 村庄数据在线采集 </span>
+							</a>
+						</li>
+						
+						<li id="07" style="display:none;">
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 专家评价 </span>
+								<b class="arrow icon-angle-down"></b>
+							</a>
+
+							<ul class="submenu">				
+								<li id="0701" style="display:none;">
+									<a href="VillBuildEval/ExpertSelect.jsp">
+										<i class="icon-double-angle-right"></i>
+											专家选取
+									</a>
+								</li>
+								
+								<li id="0702" style="display:none;">
+									<a href="VillBuildEval/ExpertScore.jsp">
+										<i class="icon-double-angle-right"></i>
+											专家打分
+									</a>
+								</li>
+								<li id="0703" style="display:none;">
+									<a href="VillBuildEval/ExpertGraResult.jsp">
+										<i class="icon-double-angle-right"></i>
+											专家打分结果
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li id="08" style="display:none;">
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 得分与诊断提升 </span>
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">				
+								<li id="0801" style="display:none;">
+									<a href="VillBuildEval/EvalResultManager.jsp">
+										<i class="icon-double-angle-right"></i>
+											评价结果
+									</a>
+								</li>
+								<li id="0802" style="display:none;">
+									<a href="VillBuildEval/Diagnostic.jsp">
+										<i class="icon-double-angle-right"></i>
+											历年得分分析
+									</a>
+								</li>
+								<li id="0803" style="display:none;">
+									<a href="VillBuildEval/Measuretable.jsp">
+										<i class="icon-double-angle-right"></i>
+											诊断提升
+									</a>
+								</li>
+								
+							</ul>
+						</li>
+						<li id="09" style="display:none;">
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 统计分析 </span>
+								<b class="arrow icon-angle-down"></b>
+							</a>
+							<ul class="submenu">				
+								<li id="0901" style="display:none;">
+									<a href="StatisticalAnalysis/DiviRank.jsp">
+										<i class="icon-double-angle-right"></i>
+											区划排名
+									</a>
+								</li>
+								<li id="0902" style="display:none;">
+									<a href="StatisticalAnalysis/ScoLevStatistics.jsp">
+										<i class="icon-double-angle-right"></i>
+											村庄分级统计
+									</a>
+								</li>
+								<li id="0903" style="display:none;">
+									<a id="a0903" href="">
+										<i class="icon-double-angle-right"></i>
+											时间序列分析
+									</a>
+								</li>
+								
+							</ul>
+						</li>
+						<li id="10" style="display:none;">
+							<a href="TownStatistics/TownAverage.jsp">
+								<i class="icon-desktop"></i>
+								<span class="menu-text"> 镇平均分计算 </span>
+							</a>
+						</li>
+						
+					</ul><!-- /.nav-list -->
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>

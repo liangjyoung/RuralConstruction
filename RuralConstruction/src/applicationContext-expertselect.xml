@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="ExpertSelectService" class="com.rural.expertselect.service.ExpertSelectService" scope="prototype">
+		<property name="vilEvalScoDAO" ref="VilEvalScoDAO"></property>
+		<property name="expertDAO" ref="ExpertDAO"></property>
+		<property name="evalExpertDistDAO" ref="EvalExpertDistDAO"></property>
+		<property name="vilDataCollRecDAO" ref="VilDataCollRecDAO"></property>
+		<property name="vilBasicInfoDAO" ref="VilBasicInfoDAO"></property>
+	</bean>
+	
+	<bean id="AllExpertService" class="com.rural.expertselect.service.AllExpertService" scope="prototype">
+		<property name="catgDAO" ref="ExpertMajorCatgDAO"></property>
+		<property name="expertDAO" ref="ExpertDAO"></property>
+		<property name="sexdao" ref="SexDAO"></property>
+		<property name="citydao" ref="CityBasicInfoDAO"></property>
+	</bean>
+	 
+	 
+	 
+	 
+	<!-- Action -->
+
+	<bean id="ExpertSelectAction" class="com.rural.expertselect.action.ExpertSelectAction" scope="prototype">
+		<property name="iexpertSelectService" ref="ExpertSelectService"/>
+	</bean>	
+	
+	<bean id="AllExpertAction" class="com.rural.expertselect.action.AllExpertAction" scope="prototype">
+		<property name="iallexpertService" ref="AllExpertService"/>
+	</bean>	
+	
+</beans>

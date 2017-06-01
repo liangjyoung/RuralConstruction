@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- Service -->
+	
+	<bean id="SysFuncService" class="com.rural.usermanager.service.SysFuncService" scope="prototype">
+		<property name="sysfuncDAO" ref="SysFuncDAO"/>
+		<property name="rolefuncpermDAO" ref="RoleFuncPermDAO"/>
+	</bean>
+	
+	<bean id="SysRoleFuncService" class="com.rural.usermanager.service.SysRoleFuncService" scope="prototype">
+		<property name="roleFuncPermDAO" ref="RoleFuncPermDAO"/>
+		<!--<property name="sysRoleDAO" ref="SysRoleDAO"/>-->
+		<property name="sysfuncDAO" ref="SysFuncDAO"/>
+	</bean>
+	
+	<bean id="SysRoleService" class="com.rural.usermanager.service.SysRoleService" scope="prototype">
+		<property name="sysroleDAO" ref="SysRoleDAO"/>
+	</bean>
+	
+	<bean id="sysuserService" class="com.rural.usermanager.service.SysUserService" scope="prototype">
+		<property name="sysroleDAO" ref="SysRoleDAO"></property> 
+		<property name="sysuserDAO" ref="SysUserDAO"></property> 
+		<property name="sysroleuserDAO" ref="SysRoleUserDAO"></property> 		
+		<property name="towndao" ref="TownBasicInfoDAO"></property> 
+		<property name="citydao" ref="CityBasicInfoDAO"></property> 
+		<property name="countrydao" ref="CountryBasicInfoDAO"></property> 
+				
+	</bean>
+	
+	<!-- Action -->
+	<bean id="SysFuncAction" class="com.rural.usermanager.action.SysFuncAction" scope="prototype">
+		<property name="iSysFuncService" ref="SysFuncService"/>
+		<property name="iSysRoleFuncService" ref="SysRoleFuncService"/>
+	</bean>
+	
+	<bean id="SysRoleAction" class="com.rural.usermanager.action.SysRoleAction" scope="prototype">
+		<property name="iSysRoleService" ref="SysRoleService"/>
+	</bean>
+	
+	<bean id="SysUserAction" class="com.rural.usermanager.action.SysUserAction" scope="prototype">
+		<property name="sysuserService" ref="sysuserService"/>
+	</bean>	
+</beans>
